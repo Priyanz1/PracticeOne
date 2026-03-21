@@ -1,19 +1,20 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
-import Hero from '../Components/Hero'
-import Latest from '../Components/Latest'
-import Best from '../Components/Best'
+import {Routes,Route} from 'react-router-dom'
+import Home from './pages/Home'
+import Product from './pages/Product'
+import Navbar from './Components/Navbar'
 
-// import Practice from './pages/Practice'
+
+
 function App() {
   return (
-    <div>
-      <Navbar/>
-      <Hero/>
-      <Latest/>
-      <Best/>
-      {/* <Practice/> */}
-    </div>
+   <div>
+     <Navbar/>
+     <Routes>
+      <Route path="/" element={<Home/>}></Route>
+      <Route path="/product/:id" element={<Product/>}></Route>
+    </Routes>
+   </div>
   )
 }
 

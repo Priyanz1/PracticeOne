@@ -11,11 +11,11 @@ function Latest() {
         setlatestCollection(Product.slice(0,10));
     },[])
   return (
-    <div>
+    <div id="collection" className='pt-10'>
         <Text Head1="LATEST" Head2="COLLECTION"/>
 
         <div className=' w-[90%] lg:w-[80%] gap-2 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-          {latestCollection.map((item,index)=>{return (<ProductCom key={index} src={item.src} dis={item.dis} price={item.price}/>)})}
+          {latestCollection.map((item,index)=>{return (<ProductCom key={index} id={item.id} src={item.src} dis={item.dis} price={item.price}/>)})}
         </div>
 
 

@@ -11,11 +11,11 @@ function Best() {
          setbestCollection(Product.slice(0,10));
      },[])
    return (
-     <div>
+     <div id="best" className='pt-10'>
          <Text Head1="BEST" Head2="SELLERS"/>
  
          <div className=' w-[90%] lg:w-[80%] gap-2 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-           {bestCollection.map((item,index)=>{return (item.isbest?<ProductCom best={item.isbest} key={index} src={item.src} dis={item.dis} price={item.price}/>:'')})}
+           {bestCollection.map((item,index)=>{return (item.isbest?<ProductCom best={item.isbest} id={item.id} key={index} src={item.src} dis={item.dis} price={item.price}/>:'')})}
          </div>
      </div>
   )

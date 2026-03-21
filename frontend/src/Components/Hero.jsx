@@ -2,7 +2,7 @@ import React from 'react'
 
 function Hero() {
   return (
-    <div className=' w-[90%] h-[80vh] mx-auto sm:flex lg:w-[80%] border overflow-hidden'>
+    <div className=' w-[90%] h-[80vh] mx-auto sm:flex lg:w-[80%] border overflow-hidden z-0 relative top-20 mb-40'>
       <div className='flex flex-col items-center justify-center py-8 sm:py-0 sm:w-1/2'>
       <div className='flex items-center gap-2'> 
         <div className="h-[1.5px] w-10 bg-black mt-3"></div>
