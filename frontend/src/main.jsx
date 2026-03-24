@@ -5,6 +5,7 @@ import 'remixicon/fonts/remixicon.css';
 import App from './App.jsx'
 import ProductContext from './Components/ProductContext.jsx';
 import { BrowserRouter } from 'react-router-dom';
+import ShopContext from './Components/ShopContext.jsx';
 // import UserContext from '../Components/UserContext.jsx';
 
 
@@ -13,8 +14,11 @@ createRoot(document.getElementById('root')).render(
     {/* <UserContext>
     <App />
     </UserContext> */}
+
     <ProductContext>
+    <ShopContext>
     <App />
+    </ShopContext>
     </ProductContext>
   </BrowserRouter>
 )

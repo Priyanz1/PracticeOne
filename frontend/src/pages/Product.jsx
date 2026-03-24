@@ -79,20 +79,31 @@
 
 
 
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ProductDataContext } from '../Components/ProductContext'
 import { FaStar } from "react-icons/fa";
+import {ShopDataContext} from '../Components/ShopContext';
 
 function Product() {
     const { id } = useParams()
-    const { Product } = useContext(ProductDataContext)
+    const { Product } = useContext(ProductDataContext);
+    const [size,setsize]=useState('');
+    const {addCart} = useContext(ShopDataContext);
 
     const singleProduct = Product.find((item) => item.id === Number(id))
 
     if (!singleProduct) {
         return <div>Product not found</div>
     }
+
+    const handleAddToCart = () => {
+        if (!size) {
+            alert("Please select a size first");
+            return;
+        }
+       addCart(singleProduct, size);
+    };
 
     return (
         <div className='w-full'>
@@ -139,7 +150,7 @@ function Product() {
                     {/* sizes */}
                     <div className='mt-6 flex flex-wrap gap-3'>
                         {["S","M","L","XL","XXL"].map((size)=>(
-                            <button 
+                            <button onClick={()=>{setsize(size)}}
                               key={size}
                               className='px-4 py-2 bg-gray-100 border hover:bg-black hover:text-white transition'
                             >
@@ -149,7 +160,7 @@ function Product() {
                     </div>
 
                     {/* add to cart */}
-                    <button className='mt-8 w-fit bg-black text-white px-8 py-3 hover:opacity-90 transition'>
+                    <button onClick={handleAddToCart} className='mt-8 w-fit bg-black text-white px-8 py-3 hover:opacity-90 transition'>
                         ADD TO CART
                     </button>
 

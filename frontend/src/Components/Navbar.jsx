@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { HashLink } from 'react-router-hash-link'
+import { ShopDataContext } from './ShopContext';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
+    const {count} = useContext(ShopDataContext);
+    const navigate= useNavigate();
+    const Carthandle=()=>{
+        navigate("/cart");
+    }
     return (
         <div className='w-full flex items-center justify-between sm:justify-around px-8 py-6 x-2 fixed z-10 bg-white'>
             <img className='text-xl' alt="Forever" />
@@ -16,7 +23,7 @@ function Navbar() {
             <div className='flex gap-3'>
                 <i className="ri-search-2-line text-xl"></i>
                 <i className="ri-account-circle-line text-xl"></i>
-                <i className="ri-handbag-line text-xl"></i>
+                <i onClick={()=>{Carthandle()}} className="ri-handbag-line text-xl">{count}</i>
                 <i className="ri-menu-line text-xl sm:hidden md:hidden lg:hidden"></i>
             </div>
         </div>
