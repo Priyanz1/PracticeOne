@@ -16,7 +16,7 @@ function Latest() {
     setlatestCollection(fpCopy.sort((a,b)=>(a.price - b.price)));
     break;
   case 'high-low':
-    setlatestCollection(fpCopy.sort((a,b)=>(b.price - a.price)));
+    setlatestCollection(fpCopy.sort((a,b)=>(b.ProductPrice - a.ProductPrice)));
     break;
   default:
     applyfun();
@@ -44,7 +44,7 @@ function Latest() {
   const applyfun = () => {
     let Copy = Product.slice(0, 10);
     if (Category.length > 0) {
-      Copy = Copy.filter((item) => Category.includes(item.cat));
+      Copy = Copy.filter((item) => Category.includes(item.category));
     }
     setlatestCollection(Copy);
   };
@@ -61,15 +61,15 @@ return (
         <div className='ml-5 sm:px-5 pb-7 '>
         Categories
         <p className='flex gap-2'>
-          <input type="checkbox" value="men" onChange={toggle} />
+          <input type="checkbox" value="Men" onChange={toggle} />
           men
         </p>
         <p className='flex gap-2'>
-          <input type="checkbox" value="women" onChange={toggle} />
+          <input type="checkbox" value="Women" onChange={toggle} />
           women
         </p>
         <p className='flex gap-2'>
-          <input type="checkbox" value="kids" onChange={toggle} />
+          <input type="checkbox" value="Kid" onChange={toggle} />
           kids
         </p>
         </div>
@@ -82,7 +82,7 @@ return (
     </div>
       </div>
       <div className=' w-[65%] md:w-[65%] lg:w-[65%] gap-2 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-        {latestCollection.map((item, index) => { return (<ProductCom key={index} id={item.id} src={item.src} dis={item.dis} price={item.price} />) })}
+        {latestCollection.map((item, index) => { return (<ProductCom key={index} ProductId={item._id} ProductImage={item.image} ProductDescription={item.description} ProductPrice={item.price} />) })}
       </div>
     </div>
   </div>

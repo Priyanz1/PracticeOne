@@ -9,9 +9,9 @@ const ShopContext =({children})=>{
         setShopProduct((prev) => {
             const updatedCart = [...prev, { singleProduct, size }];
             console.log(updatedCart);
-            setcount(count+1);
             return updatedCart;
         });
+        setcount((prevCount) => prevCount + 1);
     };
     return(
   <ShopDataContext.Provider  value={{ShopProduct,setShopProduct,addCart,setcount,count}}>

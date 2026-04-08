@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function ProductCom({src,dis,price,id}) {
+function ProductCom({ProductImage,ProductDescription,ProductPrice,ProductId}) {
   return (
     <div>
-       <Link to={`/product/${id}`}>
-       <img className='w-full object-fit' src={src} alt="image" />
-        <div className='pt-1'>{dis}</div>
-        <div className='pb-4'>${price}</div>
+       <Link to={`/product/${ProductId}`}>
+       <img className='w-full object-fit' src={ProductImage} alt={ProductDescription} />
+        <div className='pt-1'>{ProductDescription}</div>
+        <div className='pb-4'>${ProductPrice}</div>
        </Link>
     </div>
   )
